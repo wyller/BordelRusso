@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b83289f11e6442c8a1a604c83c9953ff" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="BordelRussoModel.agenda" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BordelRussoModel.bebida" Width="1.5" PointX="7.875" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BordelRussoModel.cliente" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BordelRussoModel.prostituta" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BordelRussoModel.quarto" Width="1.5" PointX="7.625" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BordelRussoModel.sexo" Width="1.5" PointX="0.625" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="BordelRussoModel.tipoBebida" Width="1.5" PointX="10" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BordelRussoModel.tipoEspecialiade" Width="1.5" PointX="1" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BordelRussoModel.tipoQuarto" Width="1.5" PointX="10.125" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BordelRussoModel.venda" Width="1.5" PointX="5.5" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="BordelRussoModel.FK__agenda__horaFim__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="BordelRussoModel.FK__agenda__idQuarto__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="BordelRussoModel.FK__bebida__idTipoBe__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="BordelRussoModel.FK__venda__idBebida__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="BordelRussoModel.FK__venda__idCliete__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="BordelRussoModel.FK_SexoCliente" ManuallyRouted="false" />
+        <AssociationConnector Association="BordelRussoModel.FK__prostitut__idTip__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="BordelRussoModel.FK_SexoProstituta" ManuallyRouted="false" />
+        <AssociationConnector Association="BordelRussoModel.FK__quarto__idTipoQu__267ABA7A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

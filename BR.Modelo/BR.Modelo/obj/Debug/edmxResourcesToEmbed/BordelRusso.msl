@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BordelRussoModelStoreContainer" CdmEntityContainer="BordelRussoEntities">
+    <EntitySetMapping Name="agenda">
+      <EntityTypeMapping TypeName="BordelRussoModel.agenda">
+        <MappingFragment StoreEntitySet="agenda">
+          <ScalarProperty Name="idProstituta" ColumnName="idProstituta" />
+          <ScalarProperty Name="idQuarto" ColumnName="idQuarto" />
+          <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+          <ScalarProperty Name="horaFim" ColumnName="horaFim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bebida">
+      <EntityTypeMapping TypeName="BordelRussoModel.bebida">
+        <MappingFragment StoreEntitySet="bebida">
+          <ScalarProperty Name="idBebida" ColumnName="idBebida" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="idTipoBebida" ColumnName="idTipoBebida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cliente">
+      <EntityTypeMapping TypeName="BordelRussoModel.cliente">
+        <MappingFragment StoreEntitySet="cliente">
+          <ScalarProperty Name="idCliete" ColumnName="idCliete" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="Apelido" ColumnName="Apelido" />
+          <ScalarProperty Name="idSexo" ColumnName="idSexo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="prostituta">
+      <EntityTypeMapping TypeName="BordelRussoModel.prostituta">
+        <MappingFragment StoreEntitySet="prostituta">
+          <ScalarProperty Name="idProstituta" ColumnName="idProstituta" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="idTipoEspecialidade" ColumnName="idTipoEspecialidade" />
+          <ScalarProperty Name="idSexo" ColumnName="idSexo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quarto">
+      <EntityTypeMapping TypeName="BordelRussoModel.quarto">
+        <MappingFragment StoreEntitySet="quarto">
+          <ScalarProperty Name="idQuarto" ColumnName="idQuarto" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="idTipoQuarto" ColumnName="idTipoQuarto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sexo">
+      <EntityTypeMapping TypeName="BordelRussoModel.sexo">
+        <MappingFragment StoreEntitySet="sexo">
+          <ScalarProperty Name="idSexo" ColumnName="idSexo" />
+          <ScalarProperty Name="descrição" ColumnName="descrição" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoBebida">
+      <EntityTypeMapping TypeName="BordelRussoModel.tipoBebida">
+        <MappingFragment StoreEntitySet="tipoBebida">
+          <ScalarProperty Name="idtipoBebida" ColumnName="idtipoBebida" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoEspecialiade">
+      <EntityTypeMapping TypeName="BordelRussoModel.tipoEspecialiade">
+        <MappingFragment StoreEntitySet="tipoEspecialiade">
+          <ScalarProperty Name="idTipoEspecialidade" ColumnName="idTipoEspecialidade" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoQuarto">
+      <EntityTypeMapping TypeName="BordelRussoModel.tipoQuarto">
+        <MappingFragment StoreEntitySet="tipoQuarto">
+          <ScalarProperty Name="idTipoQuarto" ColumnName="idTipoQuarto" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="venda">
+      <EntityTypeMapping TypeName="BordelRussoModel.venda">
+        <MappingFragment StoreEntitySet="venda">
+          <ScalarProperty Name="idCliete" ColumnName="idCliete" />
+          <ScalarProperty Name="idBebida" ColumnName="idBebida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

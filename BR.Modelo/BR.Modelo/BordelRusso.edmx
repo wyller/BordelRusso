@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BordelRussoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="agenda">
+          <Key>
+            <PropertyRef Name="idProstituta" />
+            <PropertyRef Name="idQuarto" />
+          </Key>
+          <Property Name="idProstituta" Type="int" Nullable="false" />
+          <Property Name="idQuarto" Type="int" Nullable="false" />
+          <Property Name="horaInicio" Type="time" Precision="7" Nullable="false" />
+          <Property Name="horaFim" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bebida">
+          <Key>
+            <PropertyRef Name="idBebida" />
+          </Key>
+          <Property Name="idBebida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="marca" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idTipoBebida" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="idCliete" />
+          </Key>
+          <Property Name="idCliete" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Apelido" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idSexo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="prostituta">
+          <Key>
+            <PropertyRef Name="idProstituta" />
+          </Key>
+          <Property Name="idProstituta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="valor" Type="float" Nullable="false" />
+          <Property Name="idTipoEspecialidade" Type="int" Nullable="false" />
+          <Property Name="idSexo" Type="int" />
+        </EntityType>
+        <EntityType Name="quarto">
+          <Key>
+            <PropertyRef Name="idQuarto" />
+          </Key>
+          <Property Name="idQuarto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numero" Type="int" Nullable="false" />
+          <Property Name="idTipoQuarto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sexo">
+          <Key>
+            <PropertyRef Name="idSexo" />
+          </Key>
+          <Property Name="idSexo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descrição" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipoBebida">
+          <Key>
+            <PropertyRef Name="idtipoBebida" />
+          </Key>
+          <Property Name="idtipoBebida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descricao" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipoEspecialiade">
+          <Key>
+            <PropertyRef Name="idTipoEspecialidade" />
+          </Key>
+          <Property Name="idTipoEspecialidade" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descricao" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipoQuarto">
+          <Key>
+            <PropertyRef Name="idTipoQuarto" />
+          </Key>
+          <Property Name="idTipoQuarto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descricao" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="venda">
+          <Key>
+            <PropertyRef Name="idCliete" />
+            <PropertyRef Name="idBebida" />
+          </Key>
+          <Property Name="idCliete" Type="int" Nullable="false" />
+          <Property Name="idBebida" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__agenda__horaFim__2D27B809">
+          <End Role="prostituta" Type="Self.prostituta" Multiplicity="1" />
+          <End Role="agenda" Type="Self.agenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prostituta">
+              <PropertyRef Name="idProstituta" />
+            </Principal>
+            <Dependent Role="agenda">
+              <PropertyRef Name="idProstituta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__agenda__idQuarto__2E1BDC42">
+          <End Role="quarto" Type="Self.quarto" Multiplicity="1" />
+          <End Role="agenda" Type="Self.agenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quarto">
+              <PropertyRef Name="idQuarto" />
+            </Principal>
+            <Dependent Role="agenda">
+              <PropertyRef Name="idQuarto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bebida__idTipoBe__145C0A3F">
+          <End Role="tipoBebida" Type="Self.tipoBebida" Multiplicity="1" />
+          <End Role="bebida" Type="Self.bebida" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoBebida">
+              <PropertyRef Name="idtipoBebida" />
+            </Principal>
+            <Dependent Role="bebida">
+              <PropertyRef Name="idTipoBebida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__prostitut__idTip__29572725">
+          <End Role="tipoEspecialiade" Type="Self.tipoEspecialiade" Multiplicity="1" />
+          <End Role="prostituta" Type="Self.prostituta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoEspecialiade">
+              <PropertyRef Name="idTipoEspecialidade" />
+            </Principal>
+            <Dependent Role="prostituta">
+              <PropertyRef Name="idTipoEspecialidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__quarto__idTipoQu__267ABA7A">
+          <End Role="tipoQuarto" Type="Self.tipoQuarto" Multiplicity="1" />
+          <End Role="quarto" Type="Self.quarto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoQuarto">
+              <PropertyRef Name="idTipoQuarto" />
+            </Principal>
+            <Dependent Role="quarto">
+              <PropertyRef Name="idTipoQuarto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__venda__idBebida__1CF15040">
+          <End Role="bebida" Type="Self.bebida" Multiplicity="1" />
+          <End Role="venda" Type="Self.venda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bebida">
+              <PropertyRef Name="idBebida" />
+            </Principal>
+            <Dependent Role="venda">
+              <PropertyRef Name="idBebida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__venda__idCliete__1BFD2C07">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
+          <End Role="venda" Type="Self.venda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="idCliete" />
+            </Principal>
+            <Dependent Role="venda">
+              <PropertyRef Name="idCliete" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SexoCliente">
+          <End Role="sexo" Type="Self.sexo" Multiplicity="1" />
+          <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sexo">
+              <PropertyRef Name="idSexo" />
+            </Principal>
+            <Dependent Role="cliente">
+              <PropertyRef Name="idSexo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SexoProstituta">
+          <End Role="sexo" Type="Self.sexo" Multiplicity="0..1" />
+          <End Role="prostituta" Type="Self.prostituta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sexo">
+              <PropertyRef Name="idSexo" />
+            </Principal>
+            <Dependent Role="prostituta">
+              <PropertyRef Name="idSexo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BordelRussoModelStoreContainer">
+          <EntitySet Name="agenda" EntityType="Self.agenda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bebida" EntityType="Self.bebida" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="prostituta" EntityType="Self.prostituta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="quarto" EntityType="Self.quarto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sexo" EntityType="Self.sexo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoBebida" EntityType="Self.tipoBebida" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoEspecialiade" EntityType="Self.tipoEspecialiade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoQuarto" EntityType="Self.tipoQuarto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="venda" EntityType="Self.venda" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__agenda__horaFim__2D27B809" Association="Self.FK__agenda__horaFim__2D27B809">
+            <End Role="prostituta" EntitySet="prostituta" />
+            <End Role="agenda" EntitySet="agenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK__agenda__idQuarto__2E1BDC42" Association="Self.FK__agenda__idQuarto__2E1BDC42">
+            <End Role="quarto" EntitySet="quarto" />
+            <End Role="agenda" EntitySet="agenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bebida__idTipoBe__145C0A3F" Association="Self.FK__bebida__idTipoBe__145C0A3F">
+            <End Role="tipoBebida" EntitySet="tipoBebida" />
+            <End Role="bebida" EntitySet="bebida" />
+          </AssociationSet>
+          <AssociationSet Name="FK__prostitut__idTip__29572725" Association="Self.FK__prostitut__idTip__29572725">
+            <End Role="tipoEspecialiade" EntitySet="tipoEspecialiade" />
+            <End Role="prostituta" EntitySet="prostituta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__quarto__idTipoQu__267ABA7A" Association="Self.FK__quarto__idTipoQu__267ABA7A">
+            <End Role="tipoQuarto" EntitySet="tipoQuarto" />
+            <End Role="quarto" EntitySet="quarto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__venda__idBebida__1CF15040" Association="Self.FK__venda__idBebida__1CF15040">
+            <End Role="bebida" EntitySet="bebida" />
+            <End Role="venda" EntitySet="venda" />
+          </AssociationSet>
+          <AssociationSet Name="FK__venda__idCliete__1BFD2C07" Association="Self.FK__venda__idCliete__1BFD2C07">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="venda" EntitySet="venda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SexoCliente" Association="Self.FK_SexoCliente">
+            <End Role="sexo" EntitySet="sexo" />
+            <End Role="cliente" EntitySet="cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SexoProstituta" Association="Self.FK_SexoProstituta">
+            <End Role="sexo" EntitySet="sexo" />
+            <End Role="prostituta" EntitySet="prostituta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BordelRussoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="agenda">
+          <Key>
+            <PropertyRef Name="idProstituta" />
+            <PropertyRef Name="idQuarto" />
+          </Key>
+          <Property Name="idProstituta" Type="Int32" Nullable="false" />
+          <Property Name="idQuarto" Type="Int32" Nullable="false" />
+          <Property Name="horaInicio" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="horaFim" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="prostituta" Relationship="Self.FK__agenda__horaFim__2D27B809" FromRole="agenda" ToRole="prostituta" />
+          <NavigationProperty Name="quarto" Relationship="Self.FK__agenda__idQuarto__2E1BDC42" FromRole="agenda" ToRole="quarto" />
+        </EntityType>
+        <EntityType Name="bebida">
+          <Key>
+            <PropertyRef Name="idBebida" />
+          </Key>
+          <Property Name="idBebida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="marca" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idTipoBebida" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tipoBebida" Relationship="Self.FK__bebida__idTipoBe__145C0A3F" FromRole="bebida" ToRole="tipoBebida" />
+          <NavigationProperty Name="venda" Relationship="Self.FK__venda__idBebida__1CF15040" FromRole="bebida" ToRole="venda" />
+        </EntityType>
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="idCliete" />
+          </Key>
+          <Property Name="idCliete" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apelido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idSexo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="venda" Relationship="Self.FK__venda__idCliete__1BFD2C07" FromRole="cliente" ToRole="venda" />
+          <NavigationProperty Name="sexo" Relationship="Self.FK_SexoCliente" FromRole="cliente" ToRole="sexo" />
+        </EntityType>
+        <EntityType Name="prostituta">
+          <Key>
+            <PropertyRef Name="idProstituta" />
+          </Key>
+          <Property Name="idProstituta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="valor" Type="Double" Nullable="false" />
+          <Property Name="idTipoEspecialidade" Type="Int32" Nullable="false" />
+          <Property Name="idSexo" Type="Int32" />
+          <NavigationProperty Name="agenda" Relationship="Self.FK__agenda__horaFim__2D27B809" FromRole="prostituta" ToRole="agenda" />
+          <NavigationProperty Name="tipoEspecialiade" Relationship="Self.FK__prostitut__idTip__29572725" FromRole="prostituta" ToRole="tipoEspecialiade" />
+          <NavigationProperty Name="sexo" Relationship="Self.FK_SexoProstituta" FromRole="prostituta" ToRole="sexo" />
+        </EntityType>
+        <EntityType Name="quarto">
+          <Key>
+            <PropertyRef Name="idQuarto" />
+          </Key>
+          <Property Name="idQuarto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="numero" Type="Int32" Nullable="false" />
+          <Property Name="idTipoQuarto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="agenda" Relationship="Self.FK__agenda__idQuarto__2E1BDC42" FromRole="quarto" ToRole="agenda" />
+          <NavigationProperty Name="tipoQuarto" Relationship="Self.FK__quarto__idTipoQu__267ABA7A" FromRole="quarto" ToRole="tipoQuarto" />
+        </EntityType>
+        <EntityType Name="sexo">
+          <Key>
+            <PropertyRef Name="idSexo" />
+          </Key>
+          <Property Name="idSexo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descrição" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="cliente" Relationship="Self.FK_SexoCliente" FromRole="sexo" ToRole="cliente" />
+          <NavigationProperty Name="prostituta" Relationship="Self.FK_SexoProstituta" FromRole="sexo" ToRole="prostituta" />
+        </EntityType>
+        <EntityType Name="tipoBebida">
+          <Key>
+            <PropertyRef Name="idtipoBebida" />
+          </Key>
+          <Property Name="idtipoBebida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="bebida" Relationship="Self.FK__bebida__idTipoBe__145C0A3F" FromRole="tipoBebida" ToRole="bebida" />
+        </EntityType>
+        <EntityType Name="tipoEspecialiade">
+          <Key>
+            <PropertyRef Name="idTipoEspecialidade" />
+          </Key>
+          <Property Name="idTipoEspecialidade" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="prostituta" Relationship="Self.FK__prostitut__idTip__29572725" FromRole="tipoEspecialiade" ToRole="prostituta" />
+        </EntityType>
+        <EntityType Name="tipoQuarto">
+          <Key>
+            <PropertyRef Name="idTipoQuarto" />
+          </Key>
+          <Property Name="idTipoQuarto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="quarto" Relationship="Self.FK__quarto__idTipoQu__267ABA7A" FromRole="tipoQuarto" ToRole="quarto" />
+        </EntityType>
+        <EntityType Name="venda">
+          <Key>
+            <PropertyRef Name="idCliete" />
+            <PropertyRef Name="idBebida" />
+          </Key>
+          <Property Name="idCliete" Type="Int32" Nullable="false" />
+          <Property Name="idBebida" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="bebida" Relationship="Self.FK__venda__idBebida__1CF15040" FromRole="venda" ToRole="bebida" />
+          <NavigationProperty Name="cliente" Relationship="Self.FK__venda__idCliete__1BFD2C07" FromRole="venda" ToRole="cliente" />
+        </EntityType>
+        <Association Name="FK__agenda__horaFim__2D27B809">
+          <End Role="prostituta" Type="Self.prostituta" Multiplicity="1" />
+          <End Role="agenda" Type="Self.agenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prostituta">
+              <PropertyRef Name="idProstituta" />
+            </Principal>
+            <Dependent Role="agenda">
+              <PropertyRef Name="idProstituta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__agenda__idQuarto__2E1BDC42">
+          <End Role="quarto" Type="Self.quarto" Multiplicity="1" />
+          <End Role="agenda" Type="Self.agenda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quarto">
+              <PropertyRef Name="idQuarto" />
+            </Principal>
+            <Dependent Role="agenda">
+              <PropertyRef Name="idQuarto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bebida__idTipoBe__145C0A3F">
+          <End Role="tipoBebida" Type="Self.tipoBebida" Multiplicity="1" />
+          <End Role="bebida" Type="Self.bebida" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoBebida">
+              <PropertyRef Name="idtipoBebida" />
+            </Principal>
+            <Dependent Role="bebida">
+              <PropertyRef Name="idTipoBebida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__venda__idBebida__1CF15040">
+          <End Role="bebida" Type="Self.bebida" Multiplicity="1" />
+          <End Role="venda" Type="Self.venda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bebida">
+              <PropertyRef Name="idBebida" />
+            </Principal>
+            <Dependent Role="venda">
+              <PropertyRef Name="idBebida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__venda__idCliete__1BFD2C07">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
+          <End Role="venda" Type="Self.venda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="idCliete" />
+            </Principal>
+            <Dependent Role="venda">
+              <PropertyRef Name="idCliete" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SexoCliente">
+          <End Role="sexo" Type="Self.sexo" Multiplicity="1" />
+          <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sexo">
+              <PropertyRef Name="idSexo" />
+            </Principal>
+            <Dependent Role="cliente">
+              <PropertyRef Name="idSexo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__prostitut__idTip__29572725">
+          <End Role="tipoEspecialiade" Type="Self.tipoEspecialiade" Multiplicity="1" />
+          <End Role="prostituta" Type="Self.prostituta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoEspecialiade">
+              <PropertyRef Name="idTipoEspecialidade" />
+            </Principal>
+            <Dependent Role="prostituta">
+              <PropertyRef Name="idTipoEspecialidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SexoProstituta">
+          <End Role="sexo" Type="Self.sexo" Multiplicity="0..1" />
+          <End Role="prostituta" Type="Self.prostituta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sexo">
+              <PropertyRef Name="idSexo" />
+            </Principal>
+            <Dependent Role="prostituta">
+              <PropertyRef Name="idSexo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__quarto__idTipoQu__267ABA7A">
+          <End Role="tipoQuarto" Type="Self.tipoQuarto" Multiplicity="1" />
+          <End Role="quarto" Type="Self.quarto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoQuarto">
+              <PropertyRef Name="idTipoQuarto" />
+            </Principal>
+            <Dependent Role="quarto">
+              <PropertyRef Name="idTipoQuarto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BordelRussoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="agenda" EntityType="Self.agenda" />
+          <EntitySet Name="bebida" EntityType="Self.bebida" />
+          <EntitySet Name="cliente" EntityType="Self.cliente" />
+          <EntitySet Name="prostituta" EntityType="Self.prostituta" />
+          <EntitySet Name="quarto" EntityType="Self.quarto" />
+          <EntitySet Name="sexo" EntityType="Self.sexo" />
+          <EntitySet Name="tipoBebida" EntityType="Self.tipoBebida" />
+          <EntitySet Name="tipoEspecialiade" EntityType="Self.tipoEspecialiade" />
+          <EntitySet Name="tipoQuarto" EntityType="Self.tipoQuarto" />
+          <EntitySet Name="venda" EntityType="Self.venda" />
+          <AssociationSet Name="FK__agenda__horaFim__2D27B809" Association="Self.FK__agenda__horaFim__2D27B809">
+            <End Role="prostituta" EntitySet="prostituta" />
+            <End Role="agenda" EntitySet="agenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK__agenda__idQuarto__2E1BDC42" Association="Self.FK__agenda__idQuarto__2E1BDC42">
+            <End Role="quarto" EntitySet="quarto" />
+            <End Role="agenda" EntitySet="agenda" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bebida__idTipoBe__145C0A3F" Association="Self.FK__bebida__idTipoBe__145C0A3F">
+            <End Role="tipoBebida" EntitySet="tipoBebida" />
+            <End Role="bebida" EntitySet="bebida" />
+          </AssociationSet>
+          <AssociationSet Name="FK__venda__idBebida__1CF15040" Association="Self.FK__venda__idBebida__1CF15040">
+            <End Role="bebida" EntitySet="bebida" />
+            <End Role="venda" EntitySet="venda" />
+          </AssociationSet>
+          <AssociationSet Name="FK__venda__idCliete__1BFD2C07" Association="Self.FK__venda__idCliete__1BFD2C07">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="venda" EntitySet="venda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SexoCliente" Association="Self.FK_SexoCliente">
+            <End Role="sexo" EntitySet="sexo" />
+            <End Role="cliente" EntitySet="cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__prostitut__idTip__29572725" Association="Self.FK__prostitut__idTip__29572725">
+            <End Role="tipoEspecialiade" EntitySet="tipoEspecialiade" />
+            <End Role="prostituta" EntitySet="prostituta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SexoProstituta" Association="Self.FK_SexoProstituta">
+            <End Role="sexo" EntitySet="sexo" />
+            <End Role="prostituta" EntitySet="prostituta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__quarto__idTipoQu__267ABA7A" Association="Self.FK__quarto__idTipoQu__267ABA7A">
+            <End Role="tipoQuarto" EntitySet="tipoQuarto" />
+            <End Role="quarto" EntitySet="quarto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BordelRussoModelStoreContainer" CdmEntityContainer="BordelRussoEntities">
+          <EntitySetMapping Name="agenda">
+            <EntityTypeMapping TypeName="BordelRussoModel.agenda">
+              <MappingFragment StoreEntitySet="agenda">
+                <ScalarProperty Name="idProstituta" ColumnName="idProstituta" />
+                <ScalarProperty Name="idQuarto" ColumnName="idQuarto" />
+                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+                <ScalarProperty Name="horaFim" ColumnName="horaFim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bebida">
+            <EntityTypeMapping TypeName="BordelRussoModel.bebida">
+              <MappingFragment StoreEntitySet="bebida">
+                <ScalarProperty Name="idBebida" ColumnName="idBebida" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="idTipoBebida" ColumnName="idTipoBebida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cliente">
+            <EntityTypeMapping TypeName="BordelRussoModel.cliente">
+              <MappingFragment StoreEntitySet="cliente">
+                <ScalarProperty Name="idCliete" ColumnName="idCliete" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="Apelido" ColumnName="Apelido" />
+                <ScalarProperty Name="idSexo" ColumnName="idSexo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prostituta">
+            <EntityTypeMapping TypeName="BordelRussoModel.prostituta">
+              <MappingFragment StoreEntitySet="prostituta">
+                <ScalarProperty Name="idProstituta" ColumnName="idProstituta" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="idTipoEspecialidade" ColumnName="idTipoEspecialidade" />
+                <ScalarProperty Name="idSexo" ColumnName="idSexo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quarto">
+            <EntityTypeMapping TypeName="BordelRussoModel.quarto">
+              <MappingFragment StoreEntitySet="quarto">
+                <ScalarProperty Name="idQuarto" ColumnName="idQuarto" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="idTipoQuarto" ColumnName="idTipoQuarto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sexo">
+            <EntityTypeMapping TypeName="BordelRussoModel.sexo">
+              <MappingFragment StoreEntitySet="sexo">
+                <ScalarProperty Name="idSexo" ColumnName="idSexo" />
+                <ScalarProperty Name="descrição" ColumnName="descrição" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoBebida">
+            <EntityTypeMapping TypeName="BordelRussoModel.tipoBebida">
+              <MappingFragment StoreEntitySet="tipoBebida">
+                <ScalarProperty Name="idtipoBebida" ColumnName="idtipoBebida" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoEspecialiade">
+            <EntityTypeMapping TypeName="BordelRussoModel.tipoEspecialiade">
+              <MappingFragment StoreEntitySet="tipoEspecialiade">
+                <ScalarProperty Name="idTipoEspecialidade" ColumnName="idTipoEspecialidade" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoQuarto">
+            <EntityTypeMapping TypeName="BordelRussoModel.tipoQuarto">
+              <MappingFragment StoreEntitySet="tipoQuarto">
+                <ScalarProperty Name="idTipoQuarto" ColumnName="idTipoQuarto" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="venda">
+            <EntityTypeMapping TypeName="BordelRussoModel.venda">
+              <MappingFragment StoreEntitySet="venda">
+                <ScalarProperty Name="idCliete" ColumnName="idCliete" />
+                <ScalarProperty Name="idBebida" ColumnName="idBebida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

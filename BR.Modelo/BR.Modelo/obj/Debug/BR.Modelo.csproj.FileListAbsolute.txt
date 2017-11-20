@@ -1,0 +1,10 @@
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\BR.Modelo\BR.Modelo\bin\Debug\BR.Modelo.dll.config
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\BR.Modelo\BR.Modelo\bin\Debug\BR.Modelo.dll
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\BR.Modelo\BR.Modelo\bin\Debug\BR.Modelo.pdb
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\BR.Modelo\BR.Modelo\bin\Debug\EntityFramework.dll
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\BR.Modelo\BR.Modelo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\BR.Modelo\BR.Modelo\bin\Debug\EntityFramework.xml
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\BR.Modelo\BR.Modelo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\BR.Modelo\BR.Modelo\obj\Debug\BR.Modelo.csprojResolveAssemblyReference.cache
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\BR.Modelo\BR.Modelo\obj\Debug\BR.Modelo.dll
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\BR.Modelo\BR.Modelo\obj\Debug\BR.Modelo.pdb

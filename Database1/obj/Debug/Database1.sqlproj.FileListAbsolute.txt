@@ -1,0 +1,9 @@
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\Database1\bin\Debug\Database1.dacpac
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\Database1\bin\Debug\Database1.dll
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\Database1\bin\Debug\Database1.pdb
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\Database1\obj\Debug\Model.xml
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\Database1\obj\Debug\refactor.xml
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\Database1\obj\Debug\postdeploy.sql
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\Database1\obj\Debug\predeploy.sql
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\Database1\obj\Debug\Database1.dll
+C:\Users\Wyller\Desktop\6º Periudo\Sistema de programação avançado\BordelRusso\BordelRusso\Database1\obj\Debug\Database1.pdb
